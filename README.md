@@ -1,4 +1,7 @@
-A variety of projects to work on digital systems
+# A variety of projects to work on digital systems
+
+# digital-design-projects
+digital design projects for 2026-27 (currently) 
 
 ## Multipliers
 
@@ -9,6 +12,3 @@ Architectures of various multipliers for 32-bit numbers
 ### Wallace Tree (Basic + Unsigned)
 
 ### Wallace Tree + Booth Recording
-
-
-Resources: 
