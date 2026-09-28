@@ -29,9 +29,12 @@ VlCoroutine Vfibonacci_test___024root___eval_initial__TOP__Vtiming__0(Vfibonacci
     fibonacci_test__DOT__n1_fib_test = 0;
     SData/*15:0*/ fibonacci_test__DOT__n2_fib_test;
     fibonacci_test__DOT__n2_fib_test = 0;
+    IData/*31:0*/ fibonacci_test__DOT__errors;
+    fibonacci_test__DOT__errors = 0;
     IData/*31:0*/ fibonacci_test__DOT__unnamedblk1_1__DOT____Vrepeat0;
     fibonacci_test__DOT__unnamedblk1_1__DOT____Vrepeat0 = 0;
     // Body
+    fibonacci_test__DOT__errors = 0U;
     vlSymsp->TOP____024unit.__VmonitorNum = 1U;
     vlSelfRef.fibonacci_test__DOT__rst_n = 0U;
     fibonacci_test__DOT__unnamedblk1_1__DOT____Vrepeat0 = 2U;
@@ -53,15 +56,16 @@ VlCoroutine Vfibonacci_test___024root___eval_initial__TOP__Vtiming__0(Vfibonacci
     vlSelfRef.fibonacci_test__DOT__rst_n = 1U;
     fibonacci_test__DOT__n1_fib_test = 1U;
     fibonacci_test__DOT__n2_fib_test = 0U;
+    vlSelfRef.fibonacci_test__DOT__f_test = 1U;
     Vfibonacci_test___024root____VbeforeTrig_h24cec110__0(vlSelf, 
                                                           "@(posedge fibonacci_test.clk)");
     co_await vlSelfRef.__VtrigSched_h24cec110__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(posedge fibonacci_test.clk)", 
                                                          "fibonacci_test.sv", 
-                                                         42);
+                                                         43);
     fibonacci_test__DOT__i_test = 1U;
-    while ((0x14U >= (IData)(fibonacci_test__DOT__i_test))) {
+    while ((0x13U >= (IData)(fibonacci_test__DOT__i_test))) {
         vlSelfRef.fibonacci_test__DOT__f_test = (0x0000ffffU 
                                                  & ((IData)(fibonacci_test__DOT__n1_fib_test) 
                                                     + (IData)(fibonacci_test__DOT__n2_fib_test)));
@@ -73,18 +77,18 @@ VlCoroutine Vfibonacci_test___024root___eval_initial__TOP__Vtiming__0(Vfibonacci
                                                              nullptr, 
                                                              "@(posedge fibonacci_test.clk)", 
                                                              "fibonacci_test.sv", 
-                                                             52);
+                                                             53);
         Vfibonacci_test___024root____VbeforeTrig_h24cec110__0(vlSelf, 
                                                               "@(posedge fibonacci_test.clk)");
         co_await vlSelfRef.__VtrigSched_h24cec110__0.trigger(0U, 
                                                              nullptr, 
                                                              "@(posedge fibonacci_test.clk)", 
                                                              "fibonacci_test.sv", 
-                                                             53);
+                                                             54);
         co_await vlSelfRef.__VdlySched.delay(1ULL, 
                                              nullptr, 
                                              "fibonacci_test.sv", 
-                                             54);
+                                             55);
         if (((IData)(vlSelfRef.fibonacci_test__DOT__DUT__DOT__f_n1) 
              != (IData)(vlSelfRef.fibonacci_test__DOT__f_test))) {
             VL_WRITEF_NX("[Time %0t] MISMATCH at Step %0d! Expected %0d, Got %0d\n",5, 'T',-12
@@ -92,6 +96,8 @@ VlCoroutine Vfibonacci_test___024root___eval_initial__TOP__Vtiming__0(Vfibonacci
                          , '#',5,(IData)(fibonacci_test__DOT__i_test)
                          , '#',16,vlSelfRef.fibonacci_test__DOT__f_test
                          , '#',16,(IData)(vlSelfRef.fibonacci_test__DOT__DUT__DOT__f_n1));
+            fibonacci_test__DOT__errors = ((IData)(1U) 
+                                           + fibonacci_test__DOT__errors);
         } else {
             VL_WRITEF_NX("[Time %0t] MATCH Step %0d: F(%0d) = %0d\n",5, 'T',-12
                          , '#',64,VL_TIME_UNITED_Q(1)
@@ -109,25 +115,42 @@ VlCoroutine Vfibonacci_test___024root___eval_initial__TOP__Vtiming__0(Vfibonacci
                                                          nullptr, 
                                                          "@(posedge fibonacci_test.clk)", 
                                                          "fibonacci_test.sv", 
-                                                         66);
+                                                         68);
     Vfibonacci_test___024root____VbeforeTrig_h24cec110__0(vlSelf, 
                                                           "@(posedge fibonacci_test.clk)");
     co_await vlSelfRef.__VtrigSched_h24cec110__0.trigger(0U, 
                                                          nullptr, 
                                                          "@(posedge fibonacci_test.clk)", 
                                                          "fibonacci_test.sv", 
-                                                         67);
+                                                         69);
+    Vfibonacci_test___024root____VbeforeTrig_h24cec110__0(vlSelf, 
+                                                          "@(posedge fibonacci_test.clk)");
+    co_await vlSelfRef.__VtrigSched_h24cec110__0.trigger(0U, 
+                                                         nullptr, 
+                                                         "@(posedge fibonacci_test.clk)", 
+                                                         "fibonacci_test.sv", 
+                                                         70);
     co_await vlSelfRef.__VdlySched.delay(1ULL, nullptr, 
                                          "fibonacci_test.sv", 
-                                         68);
+                                         71);
     if ((1U != (IData)(vlSelfRef.fibonacci_test__DOT__DUT__DOT__f_n1))) {
-        VL_WRITEF_NX("[Time %0t] Wrap-around failed! Expected f=1 in START, Got %0d\n",3, 'T',-12
+        VL_WRITEF_NX("[Time %0t] Wrap-around failed! Expected f = 1 in START, Got %0d\n",3, 'T',-12
                      , '#',64,VL_TIME_UNITED_Q(1), '#',16,(IData)(vlSelfRef.fibonacci_test__DOT__DUT__DOT__f_n1));
+        fibonacci_test__DOT__errors = ((IData)(1U) 
+                                       + fibonacci_test__DOT__errors);
     } else {
-        VL_WRITEF_NX("[Time %0t] Wrap-around SUCCESS!\n",2, 'T',-12
-                     , '#',64,VL_TIME_UNITED_Q(1));
+        VL_WRITEF_NX("[Time %0t] Wrap-around SUCCESS! Reset to f = %0d\n",3, 'T',-12
+                     , '#',64,VL_TIME_UNITED_Q(1), '#',16,(IData)(vlSelfRef.fibonacci_test__DOT__DUT__DOT__f_n1));
     }
-    VL_FINISH_MT("fibonacci_test.sv", 75, "");
+    VL_WRITEF_NX("--------------------------------------------------\n",0);
+    if ((0U == fibonacci_test__DOT__errors)) {
+        VL_WRITEF_NX(">> ALL TESTS PASSED SUCCESSFULLY! (0 errors) <<\n",0);
+    } else {
+        VL_WRITEF_NX(">> SIMULATION FAILED with %0d error(s). <<\n",1
+                     , '~',32,fibonacci_test__DOT__errors);
+    }
+    VL_WRITEF_NX("--------------------------------------------------\n",0);
+    VL_FINISH_MT("fibonacci_test.sv", 88, "");
     co_return;
 }
 
@@ -136,12 +159,12 @@ VlCoroutine Vfibonacci_test___024root___eval_initial__TOP__Vtiming__1(Vfibonacci
     Vfibonacci_test__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    vlSelfRef.fibonacci_test__DOT__clk = 1U;
+    vlSelfRef.fibonacci_test__DOT__clk = 0U;
     while (true) {
         co_await vlSelfRef.__VdlySched.delay(0x000000000000000aULL, 
                                              nullptr, 
                                              "fibonacci_test.sv", 
-                                             6);
+                                             7);
         vlSelfRef.fibonacci_test__DOT__clk = (1U & 
                                               (~ (IData)(vlSelfRef.fibonacci_test__DOT__clk)));
     }
@@ -259,7 +282,7 @@ bool Vfibonacci_test___024root___eval_phase__inact(Vfibonacci_test___024root* vl
     // Body
     __VinactExecute = vlSelfRef.__VdlySched.awaitingZeroDelay();
     if (__VinactExecute) {
-        VL_FATAL_MT("fibonacci_test.sv", 10, "", "ZERODLY: Design Verilated with '--no-sched-zero-delay', but #0 delay executed at runtime");
+        VL_FATAL_MT("fibonacci_test.sv", 11, "", "ZERODLY: Design Verilated with '--no-sched-zero-delay', but #0 delay executed at runtime");
     }
     return (__VinactExecute);
 }
@@ -394,13 +417,13 @@ void Vfibonacci_test___024root___eval(Vfibonacci_test___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vfibonacci_test___024root___dump_triggers__act(vlSelfRef.__VnbaTriggered, "nba"s);
 #endif
-            VL_FATAL_MT("fibonacci_test.sv", 10, "", "DIDNOTCONVERGE: NBA region did not converge after '--converge-limit' of 10000 tries");
+            VL_FATAL_MT("fibonacci_test.sv", 11, "", "DIDNOTCONVERGE: NBA region did not converge after '--converge-limit' of 10000 tries");
         }
         __VnbaIterCount = ((IData)(1U) + __VnbaIterCount);
         vlSelfRef.__VinactIterCount = 0U;
         do {
             if (VL_UNLIKELY(((0x00002710U < vlSelfRef.__VinactIterCount)))) {
-                VL_FATAL_MT("fibonacci_test.sv", 10, "", "DIDNOTCONVERGE: Inactive region did not converge after '--converge-limit' of 10000 tries");
+                VL_FATAL_MT("fibonacci_test.sv", 11, "", "DIDNOTCONVERGE: Inactive region did not converge after '--converge-limit' of 10000 tries");
             }
             vlSelfRef.__VinactIterCount = ((IData)(1U) 
                                            + vlSelfRef.__VinactIterCount);
@@ -410,7 +433,7 @@ void Vfibonacci_test___024root___eval(Vfibonacci_test___024root* vlSelf) {
 #ifdef VL_DEBUG
                     Vfibonacci_test___024root___dump_triggers__act(vlSelfRef.__VactTriggered, "act"s);
 #endif
-                    VL_FATAL_MT("fibonacci_test.sv", 10, "", "DIDNOTCONVERGE: Active region did not converge after '--converge-limit' of 10000 tries");
+                    VL_FATAL_MT("fibonacci_test.sv", 11, "", "DIDNOTCONVERGE: Active region did not converge after '--converge-limit' of 10000 tries");
                 }
                 vlSelfRef.__VactIterCount = ((IData)(1U) 
                                              + vlSelfRef.__VactIterCount);
@@ -435,6 +458,7 @@ void Vfibonacci_test___024root____VbeforeTrig_h24cec110__0(Vfibonacci_test___024
     vlSelfRef.__Vtrigprevexpr___TOP__fibonacci_test__DOT__clk__0 
         = vlSelfRef.fibonacci_test__DOT__clk;
     if ((4ULL & __VTmp[0U])) {
+        vlSelfRef.__VtrigSched_h24cec110__0.ready(__VeventDescription);
         vlSelfRef.__VtrigSched_h24cec110__0.ready(__VeventDescription);
         vlSelfRef.__VtrigSched_h24cec110__0.ready(__VeventDescription);
         vlSelfRef.__VtrigSched_h24cec110__0.ready(__VeventDescription);

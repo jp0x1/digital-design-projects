@@ -11,7 +11,7 @@ Vfibonacci_test__Syms::Vfibonacci_test__Syms(VerilatedContext* contextp, const c
     , TOP{this, namep}
 {
     // Check resources
-    Verilated::stackCheck(263);
+    Verilated::stackCheck(276);
     // Setup sub module instances
     TOP____024unit.ctor(this, "$unit");
     // Configure time unit / time precision
