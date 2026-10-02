@@ -12,4 +12,4 @@
 
 ### Demo:
 
-<video src="IMG_0304.mov" width="100%" controls></video>
+[![Watch the video](https://drive.google.com/file/d/1gCixI0njAj_-rWg8F0l_p_bNC5zip4FA/view?usp=sharing)](demo)
