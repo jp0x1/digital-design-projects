@@ -2,7 +2,7 @@
 // 16 bit adder
 // Adds two 16 bit two's complement numbers together
 // has cout, overflow, zero, negative flags
-module adder16 (
+module adder (
   input logic [15:0] A,
   input logic [15:0] B,
   input logic cin,
@@ -21,4 +21,4 @@ module adder16 (
   // don't have to worry about subtraction for now? (let's just do it later)
   assign overflow = (A[15] & B[15] & ~sum[15]) | (~A[15] & ~B[15] & sum[15]);
 
-endmodule : adder16
+endmodule : adder

@@ -2,11 +2,13 @@
 
 // module to compute fibonacci numbers up to the 4th digit on
 // the seven segment displays on basys3, then wrap back around
-module fibonacci 
+module Fibonacci #(parameter COUNT_PERIOD = 50_000_000)
   (input  logic clk,
    input  logic rst_n,
    output logic [15:0] f);
   
+  // counter to delay 
+  logic [31:0] delay_counter;
 
   // limit of 20 fibonacci numbers for BCD
   logic [4:0] n,
@@ -28,14 +30,11 @@ module fibonacci
   // next state combinational logic
   // determine the transition to the next state
   
-  adder16 alu(.A(f_n1), 
-              .B(f_n2), 
-              .cin(1'b0), 
-              .sum(adder_sum),
-              .cout(),
-              .overflow(),
-              .zero(),
-              .negative());
+  BcdAdder16 alu (
+      .A   (f_n1),
+      .B   (f_n2),
+      .sum (adder_sum)
+  );
 
   always_comb begin
     case (state)
@@ -55,7 +54,9 @@ module fibonacci
           next_state = 2'b11;
         end
         else begin
-          next_state = 2'b10;
+          if (delay_counter == COUNT_PERIOD) begin
+            next_state = 2'b10; // simulate a delay?
+          end
         end
       end
       2'b10 : begin // calc
@@ -103,4 +104,4 @@ module fibonacci
   assign f = f_n1;
   
 
-endmodule : fibonacci
+endmodule : Fibonacci

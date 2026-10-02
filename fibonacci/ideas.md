@@ -1,9 +1,15 @@
-# fibonacci number generator
-- 
+# Fibonacci Number Generator
+- Generate a fibonacci number from the fibonacci sequence
 
-## architecture
+## Digital System Design
+- FSM to check and generate a bounded amount of fibonacci numbers
+- States: START, CHECK, CALC, DONE
+- 16 BCD adder to add two bcd numbers together and display to 7 segment
+(todo: diagram, better desc.)
 
-## ideas
-- need a "digit" extractor to extract each digit and encode it to 7seg 
-- reuse bcd7seg display thing
-- use the low bs to turn it on ig
+### Testbench
+(todo)
+
+### Demo:
+
+<video src="IMG_0304.mov" width="100%" controls></video>
