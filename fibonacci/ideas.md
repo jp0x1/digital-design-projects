@@ -12,4 +12,4 @@
 
 ### Demo:
 
-[![Watch the video](https://drive.google.com/file/d/1gCixI0njAj_-rWg8F0l_p_bNC5zip4FA/view?usp=sharing)](demo)
+[![Watch the video](demo)](https://drive.google.com/file/d/1gCixI0njAj_-rWg8F0l_p_bNC5zip4FA/view?usp=sharing)
