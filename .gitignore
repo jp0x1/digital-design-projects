@@ -1,0 +1,15 @@
+# Python Virtual Environments
+venv/
+.venv/
+env/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Cocotb and Simulator Build Artifacts
+sim_build/
+*.vcd
+*.fst
+results.xml
+__pycache__/
